@@ -7,12 +7,16 @@ def preparar_hotdog():
     return "🌭"
 def ordenar_alimentos(preparar, num_porciones):
     porciones_A  = [preparar() for _ in range(num_porciones)]
-    return porciones_A
-cafe_grupo_A = ordenar_alimentos(preparar_pizza,int(input("Numero de porciones: ")))
-print(cafe_grupo_A)
+    bonus = calcular_bonus(num_porciones)
 
-cafe_grupo_B = ordenar_alimentos(preparar_hamburguesa,int(input("Numero de porciones: ")))
-print(cafe_grupo_B)
+    return porciones_A, bonus
 
-cafe_grupo_C = ordenar_alimentos(preparar_hotdog,int(input("Numero de porciones: ")))
-print(cafe_grupo_C)
+def calcular_bonus(num):
+    if(num > 2):
+        return "coca gratis"
+    else:
+        return ""
+
+print(ordenar_alimentos(preparar_pizza, 2))
+print(ordenar_alimentos(preparar_hamburguesa, 5))
+print(ordenar_alimentos(preparar_hotdog,3))
